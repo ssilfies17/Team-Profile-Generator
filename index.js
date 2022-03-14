@@ -7,7 +7,7 @@ const employee = new Employee();
 
 employee.getName();
 employee.getId();
-// employee.getEmail();
-// employee.getRole();
+employee.getEmail();
+employee.getRole();
 
 
