@@ -17,7 +17,7 @@ async function memberInfo () {
     const memberRole = await teamMember.getRole();
 
     if (memberRole === 'Manager') {
-        const manager = new Manager();
+        const manager = new Manager(memberName, memberId, memberEmail);
     }
 };
 
