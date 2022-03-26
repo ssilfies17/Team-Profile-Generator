@@ -5,24 +5,17 @@ const Intern = require("./lib/Intern");
 const fs = require('fs');
 const inquirer = require("inquirer");
 
-async function memberPrompt () {
-    const prompt = await inquirer.prompt(
+
+
+
+function memberPrompt () {
+    return inquirer.prompt(
         {
             type: 'confirm',
             name: 'memberPrompt',
             message: 'Would you like to add a member to the Team?'
         },
     );
-
-    if (prompt.memberPrompt === true) {
-
-        newMember();
-
-    } else if (prompt.memberPrompt === false) {
-
-        return;
-
-    };
 }
 
 const teamMember = new Employee();
@@ -51,7 +44,7 @@ async function newMember () {
     } else if (memberInfo.Role == 'Engineer') {
         const engineer = new Engineer (memberInfo.Name, memberInfo.Id, memberInfo.Email, memberInfo.Role);
 
-        await engineer.getGitub();
+        await engineer.getGithub();
 
     } else if (memberInfo.Role == 'Intern') {
         const intern = new Intern (memberInfo.Name, memberInfo.Id, memberInfo.Email, memberInfo.Role);
@@ -81,11 +74,8 @@ const baseHtml= () => {
     //           <a class="navbar-brand" href="#" style="font-size: 40px;">Team Profile Generator</a>
     //         </div>
     //     </nav>
-
     //     <div class="card container" style="border: 2px solid black; display: flex; flex-wrap: wrap; justify-content: space-evenly; padding: 3rem;">
-
     //         
-
     //     </div>
     // </body>
     // </html>
@@ -93,14 +83,19 @@ const baseHtml= () => {
     `
 };
 
+const start = () => {
+    const prompt = memberPrompt()
 
-// const start = () => {
-//     memberPrompt()
-//       .then((answers) => fs.writeFileSync('/dist/index.html', generateHtml(answers)))
-//       .then(() => console.log('Successfully generated your HTML!'))
-//       .catch((err) => console.error(err));
-// };
+    if(prompt == 'false')
+
+    newMember()
+      .then((answers) => fs.writeFileSync('/dist/index.html', baseHtml(answers)))
+      .then(() => console.log('HTML successfully generated!'))
+      .catch((err) => console.error(err));
+};
   
-// start();
+start();
 
-memberPrompt();
+
+// memberPrompt();
+
