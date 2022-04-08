@@ -6,7 +6,7 @@ describe("Manager", () => {
 
     describe("getOffice", () => {
         it("returns the manager's office number", () => {
-            expect(employee.getOffice()).toBe(123);
+            expect(employee.getOfficeNumber()).toBe(123);
         });
     });
 });

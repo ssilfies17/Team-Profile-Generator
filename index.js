@@ -1,49 +1,49 @@
-const Employee = require("../lib/Employee");
-const Manager = require("../lib/Manager");
-const Engineer = require("../lib/Engineer");
-const Intern = require("../lib/Intern");
+const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const fs = require('fs');
 const inquirer = require("inquirer");
 
 
 const questions = [
     {
+      type: "input",
       name: "name",
-      question: "Please enter employee name",
-      type: "input",
+      message: "Please enter employee name",
     },
     {
+      type: "input",
       name: "id",
-      question: "Please enter employee ID",
-      type: "input",
+      message: "Please enter employee ID",
     },
     {
+      type: "input",
       name: "email",
-      question: "Please enter employee email?",
-      type: "input",
+      message: "Please enter employee email?",
     },
     {
-      name: "role",
-      question: "Please enter designated employee role",
       type: "list",
+      name: "role",
+      message: "Please select designated employee role",
       choices: ["Manager", "Engineer", "Intern"],
     },
     {
-      name: "office",
-      question: "Please enter employee office number",
       type: "input",
+      name: "office",
+      message: "Please enter employee office number",
       when: (ans) => ans.role === "Manager",
     },
     {
-      name: "github",
-      question: "Please enter employee github username?",
       type: "input",
+      name: "github",
+      message: "Please enter employee github username?",
       when: (ans) => ans.role === "Engineer",
     },
     {
-      name: "school",
-      question: "Please enter employee school",
       type: "input",
+      name: "school",
+      message: "Please enter employee school",
       when: (ans) => ans.role === "Intern",
     },
 ];
@@ -63,22 +63,6 @@ function employeeSubClass(data) {
       return new Intern(name, id, email, school);
     };
 
-};
-
-const getUniqueProperty = (employee) => {
-    if (employee.role === "Manager") {
-      return employee.getOfficeNumber();
-    };
-
-    if (employee.role === "Engineer") {
-      return employee.getGithub();
-    };
-
-    if (employee.role === "Intern") {
-      return employee.getSchool();
-    };
-
-    return "unexpected response";
 };
 
 function createOutline(data) {
@@ -114,19 +98,37 @@ function createOutline(data) {
 };
 
 function createEmployeeCard (employee) {
-    getUniqueProperty();
 
-    return `<div class="card" style="width: 24rem;">
-    <div class="card-body">
-    <h5 class="card-title" style="text-align: center;">${employee.name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted" style="text-align: center;">${employee.role}</h6>
-    <ul class="card-text" style="list-style: none;">
-        <li class="ID">ID: ${employee.id} </li>
-        <li class="email">Email: ${employee.email} </li>
-        <li class="uniqueProperty"> ${getUniqueProperty} </li>
-    </ul>
-    </div>
-</div>`;
+  const getUniqueProperty = () => {
+
+    if (employee.role === "Engineer") {
+      return employee.getGithub();
+    }
+
+    if (employee.role === "Intern") {
+      return employee.getSchool();
+    }
+
+    if (employee.role === "Manager") {
+      return employee.getOfficeNumber();
+    }
+
+    return "unexpected input";
+  };
+  
+  const uniqueProperty = getUniqueProperty();
+
+  return `<div class="card" style="width: 24rem;">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">${employee.name}</h5>
+        <h6 class="card-subtitle mb-2 text-muted" style="text-align: center;">${employee.role}</h6>
+        <ul class="card-text" style="list-style: none;">
+            <li class="ID">ID: ${employee.id} </li>
+            <li class="email">Email: ${employee.email} </li>
+            <li class="uniqueProperty"> ${uniqueProperty} </li>
+        </ul>
+      </div>
+    </div>`;
 };
 
 inquirer
@@ -134,7 +136,7 @@ inquirer
   .then((data) => {
 
     fs.writeFileSync(
-      `./dist/index.html`,
+      `Team-Profile.html`,
       createOutline([employeeSubClass(data)])
     );
 
