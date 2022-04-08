@@ -128,3 +128,18 @@ function createEmployeeCard (employee) {
     </div>
 </div>`;
 };
+
+inquirer
+  .prompt(questions)
+  .then((data) => {
+
+    fs.writeFileSync(
+      `./dist/index.html`,
+      createOutline([employeeSubClass(data)])
+    );
+
+  })
+  .catch((err) => {
+      
+    console.log(err);
+  });
