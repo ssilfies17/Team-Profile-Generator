@@ -4,10 +4,12 @@
   "description": "Node command line tool that generates html based user input data.",
   "main": "index.js",
   "directories": {
-    "test": "tests"
+    "test": "tests", 
+    "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
