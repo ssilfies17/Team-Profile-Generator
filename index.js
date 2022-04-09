@@ -129,7 +129,7 @@ function createOutline(data) {
             </div>
         </nav>
     
-        <div class="card container" style=" margin-top: 2rem; border: 2px solid #D3E1EE; background-color: #3F72A2; display: flex;  flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; padding: 3rem;">
+        <div class="card container" style=" margin-top: 2rem; margin-bottom: 3rem; border: 2px solid #D3E1EE; background-color: #3F72A2; display: flex;  flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; padding: 3rem;">
             ${cards}
         </div>
     </body>
