@@ -8,6 +8,8 @@ A convienent node command line tool that takes in information about members of a
 
 #### ** Demonstration Link: [DEMO]() **
 
+> Example of a generate Team Profile [Screenshot](assets\Screenshot.png)
+
 ## Table of Contents
 
 - [Installation](#installation)
