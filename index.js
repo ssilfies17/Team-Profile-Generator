@@ -30,7 +30,7 @@ const questions = [
     },
     {
       type: "input",
-      name: "office",
+      name: "officeNumber",
       message: "Please enter employee office number",
       when: (ans) => ans.role === "Manager",
     },
@@ -65,9 +65,45 @@ function employeeSubClass(data) {
 
 };
 
+function createEmployeeCard (employee) {
+
+  const getUniqueProperty = () => {
+
+    if (employee.role === "Manager") {
+      return employee.getOfficeNumber();
+    }
+
+    if (employee.role === "Engineer") {
+      return employee.getGithub();
+    }
+
+    if (employee.role === "Intern") {
+      return employee.getSchool();
+    }
+
+    return "unexpected input";
+  };
+  
+  const uniqueProperty = getUniqueProperty();
+  
+  console.log(uniqueProperty);
+  
+  return `<div class="card" style="width: 24rem;">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">${employee.name}</h5>
+        <h6 class="card-subtitle mb-2 text-muted" style="text-align: center;">${employee.role}</h6>
+        <ul class="card-text" style="list-style: none;">
+            <li class="ID">ID: ${employee.id} </li>
+            <li class="email">Email: ${employee.email} </li>
+            <li class="uniqueProperty"> ${uniqueProperty} </li>
+        </ul>
+      </div>
+    </div>`;
+};
+
 function createOutline(data) {
     const cards = [];
-  
+    console.log({data})
     for (const d of data) {
       const card = createEmployeeCard(d);
       cards.push(card);
@@ -95,40 +131,6 @@ function createOutline(data) {
         </div>
     </body>
     </html>`;
-};
-
-function createEmployeeCard (employee) {
-
-  const getUniqueProperty = () => {
-
-    if (employee.role === "Engineer") {
-      return employee.getGithub();
-    }
-
-    if (employee.role === "Intern") {
-      return employee.getSchool();
-    }
-
-    if (employee.role === "Manager") {
-      return employee.getOfficeNumber();
-    }
-
-    return "unexpected input";
-  };
-  
-  const uniqueProperty = getUniqueProperty();
-
-  return `<div class="card" style="width: 24rem;">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center;">${employee.name}</h5>
-        <h6 class="card-subtitle mb-2 text-muted" style="text-align: center;">${employee.role}</h6>
-        <ul class="card-text" style="list-style: none;">
-            <li class="ID">ID: ${employee.id} </li>
-            <li class="email">Email: ${employee.email} </li>
-            <li class="uniqueProperty"> ${uniqueProperty} </li>
-        </ul>
-      </div>
-    </div>`;
 };
 
 inquirer
