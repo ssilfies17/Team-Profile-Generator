@@ -6,7 +6,7 @@ A convienent node command line tool that takes in information about members of a
 
 >Check out this video demo for a better insight to how this baby works!
 
-#### ** Demonstration Link: [DEMO]() **
+#### ** Demonstration Link: [DEMO](https://www.awesomescreenshot.com/video/8326931?key=9e12ef155656727d3e0cc893efbe206b) **
 
 > Example of a generate Team Profile 
 [Screenshot](/assets/Screenshot.png)
