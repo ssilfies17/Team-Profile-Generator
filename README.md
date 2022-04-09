@@ -4,6 +4,10 @@
 
 A convienent node command line tool that takes in information about members of a team and then generates an HTML webpage that displays a summary for each person.
 
+>Check out this video demo for a better insight to how this baby works!
+
+#### ** Demonstration Link: [DEMO]() **
+
 ## Table of Contents
 
 - [Installation](#installation)

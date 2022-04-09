@@ -88,17 +88,19 @@ function createEmployeeCard (employee) {
   
   console.log(uniqueProperty);
   
-  return `<div class="card" style="width: 24rem;">
-      <div class="card-body">
-        <h5 class="card-title" style="text-align: center;">${employee.name}</h5>
-        <h6 class="card-subtitle mb-2 text-muted" style="text-align: center;">${employee.role}</h6>
-        <ul class="card-text" style="list-style: none;">
-            <li class="ID">ID: ${employee.id} </li>
-            <li class="email">Email: ${employee.email} </li>
-            <li class="uniqueProperty"> ${uniqueProperty} </li>
-        </ul>
-      </div>
-    </div>`;
+  return `
+  <div class="card" style="width: 24rem; margin: 1rem; border: 2px solid #D3E1EE; background-color: #89AFD1;">
+  <div class="card-body">
+      <h5 class="card-title" style="text-align: center; font-size: 28px; color: #172A3B ;">${employee.name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted" style="text-align: center;font-size: 22px; color: #172A3B">${employee.role}</h6>
+      <ul class="card-text" style="list-style: none; font-size: 20px; color: #172A3B ;">
+          <li class="ID">ID: ${employee.id} </li>
+          <li class="email">Email: ${employee.email} </li>
+          <li class="uniqueProperty">${uniqueProperty}: ${uniqueProperty}</li>
+      </ul>
+  </div>
+</div>
+`;
 };
 
 function createOutline(data) {
@@ -117,16 +119,17 @@ function createOutline(data) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Profile Generator</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link href="style.css">
+        <link href="./src/style.css">
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-md" style="justify-content: center;">
-              <a class="navbar-brand" href="#" style="font-size: 40px;">Team Profile Generator</a>
+    <body class="bg-dark">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark" >
+            <div class="container-md" style="justify-content: center; ">
+              <a class="navbar-brand" href="#" style="font-size: 40px; color: #D3E1EE;">Team Profile Generator</a>
             </div>
         </nav>
     
-        <div class="card container" style="border: 2px solid black; display: flex; flex-wrap: wrap; justify-content: space-evenly; padding: 3rem;">
+        <div class="card container" style=" margin-top: 2rem; border: 2px solid #D3E1EE; background-color: #3F72A2; display: flex;  flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; padding: 3rem;">
             ${cards}
         </div>
     </body>
