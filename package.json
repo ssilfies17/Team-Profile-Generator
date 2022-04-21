@@ -1,7 +1,7 @@
 {
   "name": "team-profile-generator",
-  "version": "1.0.0",
-  "description": "Node command line tool that generates html based user input data.",
+  "version": "1.0.2",
+  "description": "Node command line tool that generates html based on user input data.",
   "main": "index.js",
   "directories": {
     "test": "tests", 
