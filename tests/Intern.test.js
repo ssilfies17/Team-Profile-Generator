@@ -1,6 +1,6 @@
 const Intern = require("../lib/Intern");
 
-const employee = new Intern('University of Washington');
+const employee = new Intern(1010, 'Michelle', 'michelle1010@gmail.com', 'University of Washington');
 
 describe("Engineer", () => {
 

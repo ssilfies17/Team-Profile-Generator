@@ -1,6 +1,6 @@
 const Employee = require("../lib/Employee");
 
-const employee = new Employee("Sawyer", 456, "ssilfies17@gmail.com");
+const employee = new Employee(3, "Sawyer", "ssilfies17@gmail.com", "Employee");
 
 describe("Employee", () => {
 
@@ -12,7 +12,7 @@ describe("Employee", () => {
 
     describe("getId", () => {
         it("returns the ID number of the employee", () => {
-            expect(employee.getId()).toBe(456);
+            expect(employee.getId()).toBe(3);
         });
     });
 

@@ -1,6 +1,6 @@
 const Manager = require("../lib/Manager");
 
-const employee = new Manager("Sawyer", 456, "ssilfies17@gmail.com", 123);
+const employee = new Manager(5, "Sawyer", "ssilfies17@gmail.com", 123);
 
 describe("Manager", () => {
 
